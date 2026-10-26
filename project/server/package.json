@@ -1,0 +1,23 @@
+{
+  "name": "artchain-node",
+  "version": "2.0.0",
+  "description": "ArtChain: a proof-of-work blockchain for digital art provenance, run as a local peer-to-peer network.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node network.js",
+    "network": "node network.js",
+    "node1": "node server.js --port 4001 --name node-1 --peers http://localhost:4002,http://localhost:4003",
+    "node2": "node server.js --port 4002 --name node-2 --peers http://localhost:4001,http://localhost:4003",
+    "node3": "node server.js --port 4003 --name node-3 --peers http://localhost:4001,http://localhost:4002",
+    "test": "node --test test/chain.test.js test/network.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
